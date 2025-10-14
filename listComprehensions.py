@@ -157,4 +157,93 @@ def is_prime(n):
 primes = list(filter(is_prime, range(1, 101))) #1 den 100 e kadar olan asal sayıları alır
 print(primes)
 
-#************************************************************************
+#************************************************************************5.hafta
+
+numberes = [12,15,20,24,30,35,40,45,48,50,60,75]
+#bir liste halinde verilen sayıların sadece sadece çift ve 3 ün katlarını al
+
+filtered = list(filter(lambda x: x % 2 == 0 and x % 3 == 0, numberes))
+kare_al = list(map(lambda x: x**2, filtered))
+print(kare_al)
+
+
+
+kisiler = ["Ali", "Veli", "Ayşe", "Fatma","Firat","Ahmet","Mehmet"]
+tarihler = [1990, 1985, 2000, 1995, 1980, 1975, 1965]
+kisiler_tarihler = list(zip(kisiler, tarihler)) #iki listeyi birleştirir
+print(kisiler_tarihler)
+
+
+filtrelenmis_kisiler = list(filter(lambda x: x[1] > 1990, kisiler_tarihler)) #1990 dan büyük olanları alır
+print(filtrelenmis_kisiler)
+
+dosyalar = ["document.txt", "image.png", "script.py", "archive.zip", "presentation.pptx"]
+#uzantısı .py ve .txt olan dosyaları al
+filtrelenmis_dosyalar = list(filter(lambda x: x.endswith('.py') or x.endswith('.txt'), dosyalar))
+print(filtrelenmis_dosyalar)
+
+
+employees = [
+    {"name": "Alice","salary":90000, "age": 30, "department": "IT"},
+    {"name": "Bob","salary":50000, "age": 24, "department": "Engineering"},
+    {"name": "Charlie","salary":70000, "age": 29, "department": "Finans"},
+    {"name": "David","salary":65000, "age": 35, "department": "Engineering"},
+    {"name": "Eve","salary":120000, "age": 28, "department": "HR"}
+]
+#maaşı 60bin üstü olanları al lambda ve filtre kullan
+high_earners = list(filter(lambda x: x['salary'] > 60000, employees))
+print(high_earners)
+
+
+#any kullanımı
+myList = [False,True,False]
+result = any(myList) #en az bir tane True varsa True döner
+print(result)
+
+#All kullanımı
+myList2 = [True,True,True]
+result2 = all(myList2) #tüm elemanlar True ise True döner
+print(result2)
+
+myList3 = [True,False,True]
+result3 = all(myList3) #tüm elemanlar True değilse False döner
+print(result3)
+
+#listede en az bir pozitif sayı olup olmadığını kontrol et
+numbers = [-1, -2, -3, 0]
+has_positive = any(num > 0 for num in numbers)
+print(has_positive)
+
+#listede tüm sayılar pozitif mi kontrol et
+all_positive = all(num > 0 for num in numbers)
+print(all_positive)
+
+#bir listede tüm kelimeler 3 karakterden uzun mu kontrol et
+words = ["cat", "dog", "elephant"]
+all_longer_than_3 = all(len(word) > 3 for word in words)
+print(all_longer_than_3)
+
+#bir listede en az bir kelime 5 karakterden uzun mu kontrol et
+some_longer_than_5 = any(len(word) > 5 for word in words)
+print(some_longer_than_5)
+
+datam = {"ad": "Fırat",
+         "yas": 25,
+         "meslek": "Mühendis",
+         "sehir": None}
+is_empty = any(any(d==None for d in datam.values()))
+print(is_empty)
+
+#sorted fonksiyonu,bir sayı dizinini küçükten büyüğe sıralama
+numbers = [5, 2, 9, 1, 5, 6]
+sorted_numbers = sorted(numbers)
+
+
+
+
+
+
+
+
+
+
