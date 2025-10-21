@@ -238,12 +238,97 @@ print(is_empty)
 numbers = [5, 2, 9, 1, 5, 6]
 sorted_numbers = sorted(numbers)
 
+#çalışanları maaşlarına göre küçükten büyüğe sıralayalım, sorted kullan
+employees = [
+    {"name": "Alice","salary":90000, "age": 30, "department": "IT"},
+    {"name": "Bob","salary":50000, "age": 24, "department": "Engineering"},
+    {"name": "Charlie","salary":70000, "age": 29, "department": "Finans"},
+    {"name": "David","salary":65000, "age": 35, "department": "Engineering"},
+    {"name": "Eve","salary":120000, "age": 28, "department": "HR"}
+]
+
+sorted_employees = sorted(employees, key=lambda x: x['salary']) #maaşa göre küçükten büyüğe sıralar
+print(sorted_employees) 
+
+#çalışanları yaşlarına göre büyükten küçüğe sıralayalım, sorted kullan
+sorted_employees_by_age = sorted(employees, key=lambda x: x['age'], reverse=True) #yaşa göre büyükten küçüğe sıralar
+print(sorted_employees_by_age)
+
+
+numbers = [5, 2, 9, 1, 5, 6]
+min_number = min(numbers) #en küçük sayıyı bulur
+max_number = max(numbers) #en büyük sayıyı bulur
+print("Min:", min_number, "Max:", max_number)
+
+list1 = [10,20,5,15]
+list2 = [7,25,10,5]
+min_values = list(map(min,list1, list2)) #iki listeyi eleman eleman karşılaştırır ve en küçüğünü alır
+print(min_values)
+
+max_values = list(map(max,list1, list2)) #iki listeyi eleman eleman karşılaştır
+print(max_values)
+
+#sum ve raund
+numbers = [1.5, 2.3, 3.7, 4.2]
+total = sum(numbers) #toplamını alır
+rounded_total = round(total, 2) #toplamı 2 ondalık basamağa yuvarlar
+print("Total:", total, "Rounded Total:", rounded_total)
+#bir liste içindeki sayıların toplamını ve ortalamasını bul
+numbers = [10, 20, 30, 40, 50]
+total = sum(numbers) #toplamını alır
+average = total / len(numbers) #ortalamasını alır
+rounded_average = round(average, 2) #ortalamasını 2 ondalık basamağa yuvarlar
+print("Total:", total, "Average:", rounded_average)
 
 
 
+#uygulama
+
+list1 = [5,3,10,15]
+list2 = [4,7,1,8]
+#list1 ve list2'nin karşılık gelen öğelerini toplamak için map fonksiyonunu kullanın ve list comprehension özelliğini kullanarak,toplam değeri 10 eşik değerinden küçük olan sonuçları filtreleyin.Yani onları almayın,yalnızca 10'dan büyük olan toplamlaro içeren son listeyi döndürün.
+
+summed_filtered = [result for result in map(lambda x,y: x+y, list1, list2) if result > 10]
+print(summed_filtered)
+print(list1)
+print(list2)
 
 
+names = ["alice", "bob", "charlie", "david", "eve"]
+#her ismin ilk harfini büyük yapmak için map fonksiyonunu kullanın ve liste kavrama özelliğini kullanarak 3 karakterden az olan isimleri filtrekleyiniz yani  3 ten az olanları almayın, 3 harften daha uzun olan büyük harfli isimlerin son listesini dödndürü.
+capitalized_filtered = [name.upper() for name in map(lambda x: x.capitalize(), names) if len(name) > 3]
+print(capitalized_filtered)
+print(names)
 
+#listenin sadece çift sayılarını alıp,busayıları 2 ile çarparak ynei bir liste oluşturmanızdır.Ayrıca,yeni listenin her elemanı için şunu kontrol etmelisiniz: eğer sayı 10'dan büyükse,o sayının "büyük" olarak değiştirilmesini,değilse sayının olduğu gibi kalmasını sağlayın, bu işlemi list chomprehensions kullanarak yapın.
+original_numbers = [4, 7, 9, 12, 5, 2, 15, 8]
+modified_numbers = [num * 2 if num * 2 <= 10 else "büyük" for num in original_numbers if num % 2 == 0]
+print(modified_numbers)
 
+#recursive function
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print(factorial(5)) # 5! = 5 * 4 * 3 * 2 * 1 = 120
+print(factorial(0)) # 0! = 1
+print(factorial(1)) # 1! = 1
+print(factorial(14)) # 6! = 6 * 5 * 4 * 3 * 2 * 1 = 720
+
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        seq = fibonacci(n - 1)
+        seq.append(seq[-1] + seq[-2])
+        return seq
+print(fibonacci(10)) # İlk 10 Fibonacci sayısı
+print(fibonacci(1))  # İlk 1 Fibonacci sayısı
+print(fibonacci(2))  # İlk 0 Fibonacci sayısı
 
 
