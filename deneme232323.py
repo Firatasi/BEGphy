@@ -435,3 +435,31 @@ print(fibonacci(5)) #yani kendinden önce gelen son 2 sayıyı topladı
 print(fibonacci(6))
 
 ##### fibonacci kodu doğru çalışıyor
+
+
+def is_pal_recursive(s,i=0,j=None):
+    if j is None:
+        j=len(s)-1
+    
+    if i>=j:
+        return True
+    elif s[i]!=s[j]:
+        return False
+    else:
+        return is_pal_recursive(s,i+1,j-1)
+print(is_pal_recursive("radar"))
+print(is_pal_recursive("hello"))
+print(is_pal_recursive("level"))
+
+
+
+def sum_digits(n:int) -> int:
+    n = abs(n)
+    if n < 10:
+        return n
+    else:
+        return n % 10 + sum_digits(n // 10)
+    
+print(sum_digits(1234))  # Output: 10
+print(sum_digits(-5678)) # Output: 26
+print(sum_digits(5))     # Output: 5
