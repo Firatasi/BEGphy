@@ -65,3 +65,35 @@ x = generate_prime_numbers()
 print(next(x))
 print(next(x))
 print(next(x))
+
+def log_filter_read(file_path, ip):
+    with open(file_path, 'r') as file:
+        for line in file:
+            if ip in line:
+                yield line
+
+x = log_filter_read("/Users/Firatt/Desktop/-/üDers/Python/log.txt", "192.168.1.1")
+for i in x:
+    print(i)
+
+
+def kare_al():
+    sayi = 0
+    while True:
+        kare = sayi**2
+        yield kare
+        sayi += 1
+
+y = kare_al()
+print(next(y))
+print(next(y))
+print(next(y))
+
+def dosya_adi_uret(on_ad, baslangic, bitis, uzanti):
+    for i in range(baslangic, bitis):
+        yield f"{on_ad}{i}.{uzanti}"
+
+dosya_adi = dosya_adi_uret("resim_", 1, 9, "png")
+for i in dosya_adi:
+    print(i)
+    
