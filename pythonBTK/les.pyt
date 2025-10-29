@@ -71,5 +71,11 @@ print("döngü bitti")
 
 
 
+#fnksiyon
+def topla():
+    a = input("Sayı gir: ")
+    b = input("Sayı gir2: ")
+    result = a+b
+    return result
 
-
+topla()
